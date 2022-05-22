@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  node:
+    container_name: bitcoind
+    restart: always
+    build: .
+    volumes:
+      - data:/home/app/.bitcoin/
+    ports:
+      - "18443:18443"
+      - "18444:18444"
+    expose:
+      - 18443
+      - 18444
+
+volumes:
+  data:
